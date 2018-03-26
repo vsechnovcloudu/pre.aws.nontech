@@ -1,0 +1,21 @@
+safe: true
+markdown: kramdown
+highlighter: pygments
+permalink: /:title.html
+relative_permalinks: false
+
+default_theme: bright
+default_width: 792
+default_lang: en
+default_body_class: list
+
+author:
+    name: David Kubec
+    # url:  http://example.com/
+    company:
+        name: Vsechno v cloudu s.r.o.
+        url:  https://vsechnovcloudu.github.io/website/
+
+# fork_url: https://github.com/shower/shower
+progress: true
+line_numbers: true
