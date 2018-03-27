@@ -34,41 +34,30 @@ style: |
 
 # Cloud development paradigm {#Cover}
 
-*David Kubec@[vsechnovcloudu.cz](http://vsechnovcloudu.cz/) powered by [Jekyller](https://github.com/shower/jekyller)*
+*David Kubec @ [vsechnovcloudu.cz](http://vsechnovcloudu.cz/) powered by [Jekyller](https://github.com/shower/jekyller)*
 
 ![](img/corpident/cover.jpg)
+
+## **Jádro pudla** {#start}
 
 ## Pic
 {:.cover #Picture}
 
 ![](pictures/slide_9.jpg)
 
-## Cloud = neomezené škálování {#cloud}
-Pronájem zdrojů misto jejich vlastnění.  
-Poskytovatel cloudu přidává hardware rychleji, než jejich zákazníci konzumují.  
-Služby managované cloud providerem zásadně zjednodušují a zrychlují procesy.  
+## Cloud = elasticita {#cloud}
+Misto vlastnictví serverů jen **pronajímáme zdroje**.  
+Virtuální hardware **neomezeně škáluje** (o přidávání fyzického hardwaru se nestaráme).  
+Služby nabízené cloud providerem **zásadně zjednodušují a zrychlují** procesy.   
+Platíme **pouze** za to, co doopravdy zkonzumujeme (účtováno obvykle po vteřinách).  
 
-## Automatizace {#automation}
+## **A praktický dopad?** {#impact}
 
-![](pictures/giphy.gif)
-
-## Atomické zpracování dat {#atomic}
-
-Místo jednolitého monolitu pro pevně daný počet uživatelů...  
-... budujeme proces přesně pro *jednoho uživatele* - a cloud škáluje za nás.
-
-## Úroveň abstrakce {#abstraction}
-
-1. …Hardware ... díky cloudu "jakobychom neměli hardware"
-2. …Operační systém ... díky kontajnerům "jakobychom neměli operační systém".
-3. …Server ... "server less" = "jakobychom neměli server".
-4. …**Aplikace + konfigurace** ( = to jediné, co nás vlastně zajímá)
-
-## Infrastruktura už není tím, čím bývala {#server}
+## Infrastruktura není tím, co bývala {#server}
 
 ![](pictures/server.jpg)
 
-## Všechno je software! {#software}
+## Infrastruktura je software! {#software}
 
     resource "aws_instance" "web" {
       ami           = "${data.aws_ami.ubuntu.id}"
@@ -80,17 +69,63 @@ Místo jednolitého monolitu pro pevně daný počet uživatelů...
       }
     }
 
-## Trade off
 
-Používání cloudu dělá naše životy pohodlnější
+## **Automate everything!** {#automatizace}
 
-## Cena
+## **.** {#autoscaling}
 
-Cloud není levný!  
-Pokud k němu přistupujete, jako k "jinému" datacentru, proděláte kalhoty.  
-Začít v malém je základ.  
+![](pictures/Horizontal-scaling.gif)
 
-## Bezpečnost a soukromí
+## Atomické procesy {#atomic}
 
-Šifrování, jako výchozí stav.  
-Globální kontrola nad veškerými zdroji v cloudu.  
+Místo **jednolitého monolitu** pro pevně daný počet uživatelů...  
+
+…... budujeme proces přesně pro *jednoho uživatele*.  
+**Cloud se stará o škálování na míru množství zákazníků.**  
+
+…Atomické procesy se snáze a rychleji vyvíjí, testují, rozšiřují...
+
+## **A co za to?** {#tradeoff1}
+
+## Trade off {#tradeoff2}
+
+Cloud provider nevidí **obsah** našich operací v cloudu, ale sleduje naši aktivitu.  
+Na základě analýzy dat cloud provider **vylepšuje své služby**, čímž láká více zákazníků.  
+Více zákazníků generuje **více aktivity** ... a tak dokola.  
+
+## Cena {#price}
+
+Cloud **není levný!**  
+Do cloudu se **nemigruje**, cloud *adoptujete*.  
+Prostý přesun datacentrum > cloud přinese **pramalý** benefit.    
+*Začít v malém je základ.*  
+
+## **Bezpečnost a soukromí** {#security}
+
+## Nové nároky {#requirements}
+
+Ukládání a přenos dat vyžaduje **šifrování**, jako *výchozí* nastavení.  
+
+Od samotného počátku je potřeba stanovit transparentní strukturu kontrolních mechanismů (self-service jako *výchozí* stav).
+
+Konstantní monitoring veškerých zdrojů - krom bezpečnosti je to také hlavní zdroj analýz na další vylepšování produktu.
+
+## **Sumarizace** {#summary}
+
+## IT abstrakce {#abstraction}
+
+1. …Hardware ... díky cloudu "jako" nemáme hardware.
+2. …Operační systém ... díky kontajnerům "jako" nemáme operační systém.
+3. …Server ... "server-less" = "jako" nemáme server.
+4. …**Aplikace + konfigurace** ( = to jediné, co nás vlastně zajímá).
+
+## Nová pracovní kultura {#culture}
+
+Dříve rozdělené **DEV** a **OPS** se nyní slučují = všechno je software!  
+
+Jednotný proces pro sledování a propagaci změn v aplikaci i infrastruktuře.  
+
+Atomické zpracování dat vede k **jednodušší a spolehlivější aplikaci**, v ideálním případě bez závislosti na konkrétním poskytovatelem cloudu.  
+Vývoj aplikace **nikdy nekončí**, *pořád je co vylepšovat*.  
+
+## **vsechnovcloudu.cz** {#end}
